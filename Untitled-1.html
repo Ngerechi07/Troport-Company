@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Troport Company Limited</title>
+<meta name="description" content="Troport Company Limited is a youth-owned private limited company registered in Kenya and certified under AGPO for government procurement opportunities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F8F1E3;
+    --cream-deep:#EFE5CF;
+    --gold:#B8893A;
+    --gold-light:#D9B565;
+    --gold-dark:#8E6726;
+    --sage:#8FA97F;
+    --sage-dark:#5E7A52;
+    --ink:#3A3224;
+    --muted:#6F6657;
+    --gold-grad:linear-gradient(135deg,#8E6726 0%,#D9B565 50%,#A77A2E 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Mulish",system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;font-size:17px}
+  h1,h2,h3{font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;font-weight:600;line-height:1.15}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--sage-dark);outline-offset:3px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:10;background:rgba(248,241,227,.94);backdrop-filter:blur(6px);border-bottom:1px solid rgba(184,137,58,.35)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .brand svg{width:34px;height:34px}
+  .brand span{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.6rem;font-weight:700;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  nav ul{display:flex;gap:22px;list-style:none;flex-wrap:wrap}
+  nav a{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--muted);padding:4px 0;border-bottom:2px solid transparent}
+  nav a:hover{color:var(--gold-dark);border-color:var(--sage)}
+
+  /* Hero */
+  .hero{padding:96px 0 88px;text-align:center;background:radial-gradient(ellipse at 50% 0%,#FFFBF0 0%,var(--cream) 65%)}
+  .hero svg.mark{width:120px;height:120px;margin-bottom:12px}
+  .hero h1{font-size:clamp(3.2rem,9vw,6rem);font-weight:700;letter-spacing:.01em;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .ltd{display:inline-block;margin-top:6px;color:var(--sage-dark);font-size:1.25rem;font-weight:600;padding:4px 28px;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold)}
+  .hero p.lead{max-width:600px;margin:28px auto 34px;color:var(--muted);font-size:1.15rem}
+  .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;padding:12px 26px;border-radius:999px;font-weight:700;text-decoration:none;font-size:1rem;border:2px solid var(--gold);transition:background .2s,color .2s}
+  .btn.primary{background:var(--gold-grad);color:#fff;border-color:transparent}
+  .btn.primary:hover{filter:brightness(1.08)}
+  .btn.ghost{color:var(--gold-dark)}
+  .btn.ghost:hover{background:var(--gold);color:#fff}
+
+  /* Sections */
+  section{padding:80px 0}
+  section.alt{background:var(--cream-deep)}
+  .head{max-width:640px;margin-bottom:40px}
+  .head h2{font-size:clamp(2rem,5vw,2.8rem);color:var(--gold-dark);margin-bottom:10px}
+  .head h2::after{content:"";display:block;width:56px;height:3px;background:var(--sage);margin-top:12px;border-radius:2px}
+  .head p{color:var(--muted)}
+
+  .about{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start}
+  .facts{background:#FFFBF2;border:1px solid rgba(184,137,58,.45);border-radius:18px 4px 18px 4px;padding:26px 28px}
+  .facts dl div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid rgba(184,137,58,.25)}
+  .facts dl div:last-child{border-bottom:0}
+  .facts dt{color:var(--muted);font-size:.92rem}
+  .facts dd{font-weight:700;text-align:right}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+  .card{background:#FFFBF2;border:1px solid rgba(184,137,58,.4);border-radius:4px 22px 4px 22px;padding:28px}
+  .card h3{font-size:1.5rem;color:var(--gold-dark);margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.98rem}
+  .card .dot{width:14px;height:14px;border-radius:50% 0 50% 0;background:var(--sage);margin-bottom:14px}
+
+  .cred{border-left:4px solid var(--sage);background:#FFFBF2;padding:20px 24px;border-radius:0 10px 10px 0}
+  .cred h3{font-size:1.35rem;color:var(--gold-dark)}
+  .cred p{color:var(--muted);font-size:.95rem}
+  .cred strong{color:var(--ink)}
+
+  .people{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+  .person{background:#FFFBF2;border:1px solid rgba(184,137,58,.45);border-radius:22px 4px 22px 4px;padding:30px}
+  .person h3{font-size:1.8rem;color:var(--gold-dark)}
+  .person .role{color:var(--sage-dark);font-weight:700;margin-bottom:16px}
+  .person .phone{font-size:1.2rem;font-weight:700;margin-bottom:16px}
+  .person .btns{justify-content:flex-start}
+  .person .btn{padding:9px 20px;font-size:.95rem}
+
+  .contact-box{margin-top:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;color:var(--muted)}
+  .contact-box strong{display:block;color:var(--gold-dark);font-family:"Cormorant Garamond",Georgia,serif;font-size:1.3rem}
+
+  footer{background:var(--ink);color:#E9DFC9;text-align:center;padding:34px 0;font-size:.92rem}
+  footer .name{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.4rem;color:var(--gold-light)}
+
+  @media (max-width:760px){
+    .about{grid-template-columns:1fr}
+    .nav{flex-direction:column}
+    section{padding:60px 0}
+    .hero{padding:64px 0}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<!-- Reusable leaf-and-T mark, drawn to echo the logo -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8E6726"/><stop offset=".5" stop-color="#D9B565"/><stop offset="1" stop-color="#A77A2E"/>
+    </linearGradient>
+    <symbol id="mark" viewBox="0 0 100 100">
+      <path d="M12 24c12-8 30-8 48-2-14 0-22 3-24 8-6 4-10 4-14 0-4-2-5-4-10-6z" fill="url(#g)"/>
+      <path d="M40 30c-12 14-16 34-4 52 14 4 28-4 30-16-10 6-20 6-24-2-4-12 0-24 8-34z" fill="url(#g)"/>
+      <path d="M82 14c-2 20-12 32-30 40 2-18 12-32 30-40z" fill="#8FA97F"/>
+      <path d="M74 46c-2 16-10 26-24 34 0-16 8-28 24-34z" fill="#A9BF9A"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Troport Company Limited home">
+      <svg aria-hidden="true"><use href="#mark"/></svg>
+      <span>Troport</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#what-we-do">What we do</a></li>
+        <li><a href="#credentials">Credentials</a></li>
+        <li><a href="#team">Directors</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <svg class="mark" aria-hidden="true"><use href="#mark"/></svg>
+      <h1>Troport</h1>
+      <span class="ltd">Company Ltd</span>
+      <p class="lead">A youth-owned private limited company, registered in Kenya and certified to take part in government procurement.</p>
+      <div class="btns">
+        <a class="btn primary" href="#contact">Talk to our directors</a>
+        <a class="btn ghost" href="#credentials">See our credentials</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <div class="head">
+          <h2>About Troport</h2>
+        </div>
+        <p>Troport Company Limited was incorporated on 12 November 2025 as a private limited company under the Companies Act, 2015. It is owned and run by two Kenyan directors who each hold half of the company's shares.</p>
+        <p style="margin-top:14px">On 4 December 2025 the company was registered under the Access to Government Procurement Opportunities (AGPO) programme in the Youth category. This allows Troport to bid for public tenders reserved for youth-owned businesses, and it is also registered with the Kenya Revenue Authority for company income tax.</p>
+      </div>
+      <aside class="facts" aria-label="Company facts">
+        <dl>
+          <div><dt>Company name</dt><dd>Troport Company Limited</dd></div>
+          <div><dt>Type</dt><dd>Private limited company</dd></div>
+          <div><dt>Company number</dt><dd>PVT-A71M5RWP</dd></div>
+          <div><dt>Incorporated</dt><dd>12 November 2025</dd></div>
+          <div><dt>Share capital</dt><dd>KES 100,000</dd></div>
+          <div><dt>Location</dt><dd>Kileleshwa, Nairobi</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <!-- EDIT THIS SECTION: the registration documents do not state the company's trade activities.
+       Replace the three cards below with your real products or services. -->
+  <section id="what-we-do" class="alt">
+    <div class="wrap">
+      <div class="head">
+        <h2>What we do</h2>
+        <p>Troport supplies goods and services to public and private buyers, with the paperwork and compliance to back every bid.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="dot"></div>
+          <h3>Public-sector supply</h3>
+          <p>We bid for and deliver government tenders reserved for youth-owned businesses under AGPO, in line with the Public Procurement and Asset Disposal Act, 2015.</p>
+        </article>
+        <article class="card">
+          <div class="dot"></div>
+          <h3>Private-sector supply</h3>
+          <p>We provide goods and services to businesses and organisations that need a registered, tax-compliant supplier they can invoice and rely on.</p>
+        </article>
+        <article class="card">
+          <div class="dot"></div>
+          <h3>Compliant by default</h3>
+          <p>Incorporated, registered with KRA and certified under AGPO, so buyers can verify who we are before they work with us.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="credentials">
+    <div class="wrap">
+      <div class="head">
+        <h2>Our credentials</h2>
+        <p>Every document below was issued by a Kenyan government body and can be verified at source.</p>
+      </div>
+      <div class="grid">
+        <div class="cred">
+          <h3>Certificate of Incorporation</h3>
+          <p>Issued by the Registrar of Companies on <strong>12 November 2025</strong>. Company no. <strong>PVT-A71M5RWP</strong>.</p>
+        </div>
+        <div class="cred">
+          <h3>KRA tax registration</h3>
+          <p>Registered with the Kenya Revenue Authority for <strong>Income Tax (Company)</strong> from 12 November 2025.</p>
+        </div>
+        <div class="cred">
+          <h3>AGPO certificate (Youth)</h3>
+          <p>Registered on <strong>4 December 2025</strong> and valid until <strong>4 December 2027</strong>. Verify it at <a href="https://www.agpo.go.ke" target="_blank" rel="noopener">www.agpo.go.ke</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" class="alt">
+    <div class="wrap">
+      <div class="head">
+        <h2>Our directors</h2>
+        <p>Troport is owned equally by its two directors. Call or message either of them directly.</p>
+      </div>
+      <div class="people">
+        <article class="person">
+          <h3>Tony Kolila Mantai</h3>
+          <p class="role">Director and shareholder</p>
+          <p class="phone"><a href="tel:+254768191263">0768 191 263</a></p>
+          <div class="btns">
+            <a class="btn primary" href="tel:+254768191263">Call Tony</a>
+            <a class="btn ghost" href="https://wa.me/254768191263" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </article>
+        <article class="person">
+          <h3>Enock Kiprono</h3>
+          <p class="role">Director and shareholder</p>
+          <p class="phone"><a href="tel:+254795740500">0795 740 500</a></p>
+          <div class="btns">
+            <a class="btn primary" href="tel:+254795740500">Call Enock</a>
+            <a class="btn ghost" href="https://wa.me/254795740500" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="head">
+        <h2>Contact us</h2>
+        <p>Send us an email or visit our registered office in Nairobi.</p>
+      </div>
+      <div class="contact-box">
+        <div><strong>Email</strong><a href="mailto:tronickstar@gmail.com">tronickstar@gmail.com</a></div>
+        <div><strong>Registered office</strong>Viraj Villa, Block 5, House No 14<br>Ring Road, Kileleshwa, Nairobi</div>
+        <div><strong>Postal address</strong>P.O. Box 8470, 00200 City Square<br>Nairobi, Kenya</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="name">Troport Company Ltd</div>
+    <p>Company no. PVT-A71M5RWP &middot; Registered in Kenya under the Companies Act, 2015</p>
+    <p>&copy; <span id="yr">2026</span> Troport Company Limited. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
